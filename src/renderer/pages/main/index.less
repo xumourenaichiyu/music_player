@@ -1,0 +1,33 @@
+.music_main {
+  width: 100vw;
+  height: 100vh;
+  .top_bar {
+    padding: 10px;
+    background: linear-gradient(to bottom, #a4e2e0, #fff 80px, #fff);
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    .title {
+      flex: 1;
+    }
+    .search_input_wrap {
+      width: 100%;
+      text-align: center;
+      .search_input {
+        width: 80%;
+        border: none;
+        outline: none;
+        height: 40px;
+        border-radius: 20px;
+        box-shadow: 0 0 6px 1px #ccc;
+        text-align: center;
+        cursor: default;
+        color: #d0d0d0;
+      }
+    }
+  }
+  .music_list{
+    height: calc(100% - 100px);
+    overflow-y: auto;
+  }
+}

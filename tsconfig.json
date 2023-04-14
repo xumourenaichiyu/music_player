@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "jsx": "react-jsx",
+        "baseUrl": ".",
+        "allowJs": true,
+        "allowSyntheticDefaultImports": true,
+        "paths": {
+            "@": [
+                "./src/renderer"
+            ]
+        },
+        "target": "ES6",
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
+        "esModuleInterop": true
+    }
+}
