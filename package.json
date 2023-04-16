@@ -1,14 +1,16 @@
 {
-  "name": "T-MUSIC",
+  "name": "tong_player",
   "version": "1.0.0",
   "description": "基于Electron+React开发的本地音乐播放器",
   "main": "./src/main/index.ts",
   "author": "xumourenaichiyu",
   "license": "GPL",
   "scripts": {
-    "start": "cross-env NODE_ENV=development && webpack server --config ./build/webpack.config.renderer.dev.ts",
+    "start": "cross-env NODE_ENV=development && npm run start:renderer",
+    "start:renderer": "webpack server --config ./build/webpack.config.renderer.dev.ts",
     "build": "",
-    "start:main": "cross-env NODE_ENV=development electronmon -r ts-node/register/transpile-only ."
+    "start:main": "electronmon -r ts-node/register/transpile-only .",
+    "start:preload": "webpack --config ./build/webpack.config.preload.ts"
   },
   "dependencies": {
     "@ant-design/icons": "^4.7.0",

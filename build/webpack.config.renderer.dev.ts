@@ -8,8 +8,9 @@ import {resolve} from 'path';
 import {spawn} from 'child_process';
 const env = process.env.NODE_ENV;
 const config: webpack.Configuration = {
+  devtool: 'inline-source-map',
   mode: 'development',
-  target: ['web', 'electron-renderer'],
+  target: ['electron-renderer'],
   plugins: [
     new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({
@@ -19,7 +20,10 @@ const config: webpack.Configuration = {
   ],
   output: {
     filename: "[name].js",
-    path: resolve(__dirname, './dist')
+    path: resolve(__dirname, './dist'),
+    library: {
+      type: 'umd'
+    }
   },
   entry: [resolve(__dirname,'../src/renderer/index.tsx')],
   module: {
@@ -59,6 +63,8 @@ const config: webpack.Configuration = {
       publicPath: '/'
     },
     setupMiddlewares: (Middlewares)=>{
+      console.log('starting preload process...');
+      spawn('yarn', ['start:preload'], { shell: true, stdio: 'inherit' })
       console.log('starting main process...');
       spawn('yarn',['start:main'], {shell: true,stdio: 'inherit'})
       return Middlewares;

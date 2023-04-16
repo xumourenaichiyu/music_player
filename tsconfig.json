@@ -9,9 +9,11 @@
                 "./src/renderer"
             ]
         },
-        "target": "ES6",
+        "target": "ESNext",
+        "module": "CommonJS",
         "moduleResolution": "node",
         "resolveJsonModule": true,
-        "esModuleInterop": true
+        "esModuleInterop": true,
+        "incremental": true
     }
 }
